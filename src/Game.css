@@ -1,15 +1,16 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.game {
-  max-width: 800px;
-  margin: 0 auto;
-}
-body{
+body {
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.game {
+  max-width:800px;
 }
 
 .body {
@@ -19,8 +20,11 @@ body{
   border: thin solid #ddd;
   align-items: center;
   justify-content: center;
-  margin: 100px;
-  
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .meaning,
@@ -30,7 +34,7 @@ body{
 
 .question {
   color: #666;
-  margin: 70px;
+  margin: 30px;
   text-align: center;
   font-size: 28px;
 }
@@ -53,6 +57,11 @@ button:focus {
   background-color: #eee;
   font-size: 125px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
 }
 
 .status-playing {
@@ -70,7 +79,10 @@ button:focus {
 }
 
 .score {
-  position: absolute;
-  right: 5%;
   font-size: large;
+  margin-left: 686px;
+}
+
+div.buttons{
+  margin-left: 300px;
 }
