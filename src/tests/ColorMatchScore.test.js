@@ -15,4 +15,11 @@ test('display score', () => {
     expect(scoreElement).toBeInTheDocument();
 });
 
+test('initial score is 0', () => {
+    render(<ColorMatchScore score={0} />);
+
+    const initialScore = screen.getByText('Score: 0');
+
+    expect(initialScore).toBeInTheDocument();
+});
 
