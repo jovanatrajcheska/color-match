@@ -2,9 +2,10 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ColorMatchButtons from '../components/ColorMatchButtons';
 
+const handleClick = jest.fn();
 
-test('correct labels of the buttons', () => {
-    render(<ColorMatchButtons handleClick={() => { }} />);
+test('checking the content of the buttons', () => {
+    render(<ColorMatchButtons handleClick={handleClick} />);
 
     const yesButton = screen.getByText('YES');
     const noButton = screen.getByText('NO');
@@ -13,22 +14,18 @@ test('correct labels of the buttons', () => {
     expect(noButton).toBeInTheDocument();
 });
 
-test('click YES = handleClick true', () => {
-    const handleClick = jest.fn();
+test('handleClick is true when YES is clicked', () => {
     render(<ColorMatchButtons handleClick={handleClick} />);
 
-    const yesButton = screen.getByText('YES');
-    fireEvent.click(yesButton);
+    fireEvent.click(screen.getByText('YES'));
 
     expect(handleClick).toHaveBeenCalledWith(true);
 });
 
-test('click NO = handleClick false', () => {
-    const handleClick = jest.fn();
+test('handleClick is false when NO is clicked', () => {
     render(<ColorMatchButtons handleClick={handleClick} />);
 
-    const noButton = screen.getByText('NO');
-    fireEvent.click(noButton);
+    fireEvent.click(screen.getByText('NO'));
 
     expect(handleClick).toHaveBeenCalledWith(false);
 });
