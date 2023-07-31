@@ -8,10 +8,10 @@ const ColorDisplay = ({ wordOne, wordTwo, inkColor, gameStatus }) => {
     return (
         <div className="body">
             <div className="words-container">
-                <div className="ink" style={{ color: inkColor }} data-ink-color={inkColor}>
+                <div className="ink" data-testid="color-ink" style={{ color: inkColor }}>
                     {displayWordOne}
                 </div>
-                <div className="meaning">
+                <div className="meaning" data-testid="color-meaning">
                     {displayWordTwo}
                 </div>
             </div>
