@@ -5,6 +5,7 @@ import Question from '../components/Question';
 import ColorMatchScore from '../components/ColorMatchScore';
 import { resetGameAfterDelay } from '../helpers/Reset';
 import { handleColorMatchClick } from '../helpers/ClickHelper';
+import { getRandomColors } from '../helpers/ColorGenerator';
 import '../Game.css'
 
 
