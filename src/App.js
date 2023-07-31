@@ -1,11 +1,10 @@
 import React from 'react';
-import './Game.css';
-import ColorMatch from './screens/ColorMatch'; // Import the ColorMatch component
+import ColorMatchGame from './screens/ColorMatchGame';
 
 function App() {
   return (
-    <div className="App">
-      <ColorMatch /> {/* Render the ColorMatch component */}
+    <div>
+      <ColorMatchGame />
     </div>
   );
 }
