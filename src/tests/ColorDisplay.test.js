@@ -2,20 +2,32 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ColorDisplay from '../components/ColorDisplay';
 
-test('Words and color', () => {
-    const wordOne = 'Pink';
-    const wordTwo = 'Red';
-    const inkColor = 'pink';
-    const gameStatus = 'playing';
+const wordOne = 'red';
+const wordTwo = 'black';
+const inkColor = 'pink';
 
-    render(<ColorDisplay wordOne={wordOne} wordTwo={wordTwo} inkColor={inkColor} gameStatus={gameStatus} />);
+test('display the correct words - one with color, one to check', () => {
+    render(<ColorDisplay wordOne={wordOne} wordTwo={wordTwo} inkColor={inkColor} gameStatus="playing" />);
 
-    const inkElement = screen.getByText(wordOne);
-    const meaningElement = screen.getByText(wordTwo);
+    const displayedWithColor = screen.getByTestId('color-ink');
+    const meaningWordCheck = screen.getByTestId('color-meaning');
+
+    expect(displayedWithColor).toBeInTheDocument();
+    expect(meaningWordCheck).toBeInTheDocument();
+    expect(displayedWithColor.textContent).toMatch(new RegExp(`${wordOne}|${wordTwo}`));
+    expect(displayedWithColor.textContent).toMatch(new RegExp(`${wordOne}|${wordTwo}`));
+
+    // could be tested like this too:
+    // expect(displayedWithColor.textContent).toMatch(/red|black/);
+    // expect(meaningWordCheck.textContent).toBe('black');
+});
+
+test('display the correct ink color', () => {
+    render(<ColorDisplay wordOne={wordOne} wordTwo={wordTwo} inkColor={inkColor} gameStatus="playing" />);
+
+    const inkElement = screen.getByTestId('color-ink');
 
     expect(inkElement).toBeInTheDocument();
-    expect(meaningElement).toBeInTheDocument();
-
-    const inkElementStyle = window.getComputedStyle(inkElement);
-    expect(inkElementStyle.color).toBe(inkColor);
+    expect(inkElement.style.color).toBe(inkColor);
 });
+
