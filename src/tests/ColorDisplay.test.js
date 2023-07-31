@@ -19,7 +19,7 @@ test('display the correct words - one with color, one to check', () => {
 
     // could be tested like this too:
     // expect(displayedWithColor.textContent).toMatch(/red|black/);
-    // expect(meaningWordCheck.textContent).toBe('black');
+    // expect(meaningWordCheck.textContent).toMatch(/red|black/);
 });
 
 test('display the correct ink color', () => {
